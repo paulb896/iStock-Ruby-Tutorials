@@ -1,0 +1,13 @@
+Name: iStock Git Tutorial 1
+Description: A command line application that allows users to order a sandwich.
+Task:
+  Write a sandwich app that allows me to order a sandwich selecting:
+  Bread
+  Meat
+  Veggies
+  Condiments
+
+Author: Paul Beauchamp
+
+USAGE:
+$ ruby make_my_sandwich.rb
