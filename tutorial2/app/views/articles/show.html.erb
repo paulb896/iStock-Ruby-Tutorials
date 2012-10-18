@@ -3,16 +3,19 @@
 <br />
 <p><%= @article.body %></p>
 <% if @article.image_file_name %>
-  <p><%= image_tag @article.image.url %></p>
+  <p><%= image_tag @article.image.url, :class => "article_image" %></p>
 <% end %>
 <br /><hr><br />
-<%= link_to "edit", edit_article_path(@article) %>
-<br />
-<%= link_to "delete", article_path(@article), :method => :delete, :confirm => "Really delete the article?"%>
-<br /><br />
-<h3>Comments (<%= @article.comments.count %>)</h3>
-<%= render :partial => 'comment', :collection => @article.comments %>
-<br /><br />
-<%= render :partial => 'comment_form' %>
-<br /><br />
+<% if logged_in? %>
+  <%= link_to "edit", edit_article_path(@article) %>
+  <br />
+  <%= link_to "delete", article_path(@article), :method => :delete, :confirm => "Really delete the article?"%>
+
+  <br /><br />
+  <h3>Comments (<%= @article.comments.count %>)</h3>
+  <%= render :partial => 'comment', :collection => @article.comments %>
+  <br /><br />
+  <%= render :partial => 'comment_form' %>
+  <br /><br />
+<% end %>
 <%= link_to "<< Back to Articles List", articles_path %>
