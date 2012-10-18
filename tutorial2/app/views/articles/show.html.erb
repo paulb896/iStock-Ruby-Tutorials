@@ -6,12 +6,16 @@
   <p><%= image_tag @article.image.url, :class => "article_image" %></p>
 <% end %>
 <br /><hr><br />
-<% if logged_in? %>
+
+<% if (logged_in? && (@article.author_id == current_user.id)) %>
   <%= link_to "edit", edit_article_path(@article) %>
   <br />
   <%= link_to "delete", article_path(@article), :method => :delete, :confirm => "Really delete the article?"%>
 
   <br /><br />
+<% end %>
+
+<% if logged_in? %>
   <h3>Comments (<%= @article.comments.count %>)</h3>
   <%= render :partial => 'comment', :collection => @article.comments %>
   <br /><br />

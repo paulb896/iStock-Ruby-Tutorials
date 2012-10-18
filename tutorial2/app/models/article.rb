@@ -1,5 +1,11 @@
 class Article < ActiveRecord::Base
   attr_accessible :title, :body, :tag_list, :image
+  has_many :comments
+  has_many :taggings
+  has_many :tags, :through => :taggings
+  has_attached_file :image
+  belongs_to :author
+
   def tag_list
     return self.tags.join(", ")
   end
@@ -14,9 +20,4 @@ class Article < ActiveRecord::Base
       tagging.tag_id = tag.id
     end
   end
-  
-  has_many :comments
-  has_many :taggings
-  has_many :tags, :through => :taggings
-  has_attached_file :image
 end

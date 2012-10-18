@@ -1,7 +1,14 @@
 class ArticlesController < ApplicationController
-
   before_filter :require_login, :except => [:index, :show]
+  before_filter :verify_author, :only => [:edit, :update, :destroy]
 
+  def verify_author
+    article = Article.find(params[:id])
+    if (article.author_id != current_user.id)
+      redirect_to root_path
+      return false
+    end
+  end
   def index
     @articles = Article.all
   end
@@ -15,6 +22,7 @@ class ArticlesController < ApplicationController
   end
   def create
     @article = Article.new(params[:article])
+    @article.author_id = current_user.id
     @article.save
     
     flash[:message] = "Article '#{@article.title}' has been created!"
