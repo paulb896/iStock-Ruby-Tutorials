@@ -7,17 +7,28 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
     <p class="flash"><%= flash[:message] %></p>
-    <h6 class='login_div'>
-      <% if logged_in? %>
-        <%= "Logged in as #{current_user.username}" %>
-        <%= link_to '(logout)', logout_path %>
-      <% else %>
-        <%= "You should really log in!" %>
-        <%= link_to '(login)', login_path %>
-      <% end %>
-    </h6>
+    <div id='navigation' class='navbar navbar-fixed-top navbar-inner topbar'>
+      <ul class='nav'>
+        <li><%= link_to 'Authors', authors_path %></li>
+        <li><%= link_to 'Articles', articles_path %></li>
+        <li><%= link_to 'Tags', tags_path %></li>
+        <% if !logged_in? %>
+          <li><%= link_to 'Create Account', :controller => "authors", :action => "new" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class='login_div topbar navbar-fixed-top navbar'>
+      <ul class='nav'>
+        <li>
+          <% if logged_in? %>
+            <%= link_to 'Logout', logout_path %>
+          <% else %>
+            <%= link_to 'Login', login_path %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
     <div id="content">
       <%= yield %>
     </div>
