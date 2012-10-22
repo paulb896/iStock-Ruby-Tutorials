@@ -15,4 +15,6 @@ Tutorial2::Application.routes.draw do
   match 'login'  => 'author_sessions#new',     :as => :login
   match 'logout' => 'author_sessions#destroy', :as => :logout
 
+  match ':articles/:byMonth/:month' => 'articles#byMonth', :as => :filterByMonth
+
 end

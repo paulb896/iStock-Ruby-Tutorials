@@ -12,5 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-
+//= require mobiscroll-2.0.3.custom.min

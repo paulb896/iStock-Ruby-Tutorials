@@ -1,9 +1,14 @@
 div.field_with_errors label{color: red; font-weight:bold}
 div.field_with_errors input{border: 3px solid red}
-.tag_delete {color: red}
+.tag_delete {color: red !important}
 
 .divider{
   margin-left: 25px;
+}
+
+.new_article{
+   color: white !important;
+   float: right;
 }
 
 .article_tools{
@@ -12,18 +17,29 @@ div.field_with_errors input{border: 3px solid red}
     z-index:4;
 }
 
+.monthPicker{
+    float:right;
+    background-color:transparent;
+}
+
 .image_edit{
   height: 100px;
   width: 100px;
 }
 
 .create_author{
-    background-color:#BBBBFF;
+    background-color:#DEDEFF;
     border-radius:2px;
 }
 
 textarea{
     height:50px;
+}
+
+.viewCount{
+  color:green;
+  font-size:50%;
+  height:75px;
 }
 
 #container-fluid{
@@ -44,6 +60,10 @@ textarea{
   -webkit-box-shadow: 0 1px 1px 2px #ccc;
   box-shadow: 0 1px 1px 2px #ccc;
   padding:20px;
+}
+
+.nothing{
+  display:none !important;
 }
 
 .article_image{
@@ -73,7 +93,7 @@ textarea{
 }
 
 h1{
-  font-family: 'Finger Paint', cursive;
+  font-family: 'Finger Paint', cursive !important;
 }
 
 label{

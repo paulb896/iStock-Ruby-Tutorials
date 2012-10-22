@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :require_login, :except => [:index, :show]
+  before_filter :require_login, :except => [:index, :show, :byMonth]
   before_filter :verify_author, :only => [:edit, :update, :destroy]
 
   def verify_author
@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
   end
   def show
     @article = Article.find(params[:id])
+    @viewCount = @article.increment_views
     @comment = Comment.new
     @comment.article_id = @article.id
   end
@@ -47,5 +48,14 @@ class ArticlesController < ApplicationController
     flash[:message] = "Article '#{@article.title}' Updated!"
 
     redirect_to article_path(@article)
+  end
+  def byMonth
+    #@articles = Article.find(:all, :conditions => ["date(created_at) BETWEEN ? AND ? ", '2012-10-01','2012-10-11'])
+    @articles = Article.by_month(params[:month].to_i)
+    #render :json => @articles
+    respond_to do |format|
+      format.json { render :json => @articles }
+      format.rss { render :layout => false }
+    end
   end
 end

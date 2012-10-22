@@ -9,8 +9,9 @@
     <div class="card"> 
         <div class="face front"> 
             <h1><%= @article.title %></h1>
-            <p>Tags: <%= tag_links(@article.tags) %></p>
-            <p><%= @article.body %></p>
+            <div class="viewCount">Views: <%= @viewCount %></div>
+            <div>Tags: <%= tag_links(@article.tags) %></div>
+            <div><%= @article.body %></div>
             <% if @article.image_file_name %>
               <p><%= image_tag @article.image.url, :class => "article_image" %></p>
             <% end %>
@@ -23,7 +24,9 @@
             <%= link_to "<< Back to Articles List", articles_path %>
         </div>
         <div class="face back"> 
+          <% if (logged_in? && (@article.author_id == current_user.id)) %>
             <%= render :partial => 'form' %>
+          <% end %>
         </div> 
     </div> 
 </div>
