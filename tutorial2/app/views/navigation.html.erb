@@ -1,0 +1,22 @@
+<div class="status_bar"></div>
+<div id='navigation' class='navbar navbar-fixed-top navbar-inner topbar'>
+  <ul class='nav'>
+    <li class="nav-header">Blogging to the Max!</li>
+    <li><%= link_to 'Articles', articles_path %></li>
+    <li><%= link_to 'Tags', tags_path %></li>
+    <li class="nav-header">|</li>
+    <li><%= link_to 'Authors', authors_path %></li>'
+    <li class="nav-header">|</li>
+    <li class="divider"></li>
+    <% if !logged_in? %>
+      <li class="create_author"><%= link_to 'Create Account', :controller => "authors", :action => "new" %></li>
+    <% end %>
+    <li>
+      <% if logged_in? %>
+        <%= link_to 'Logout', logout_path %>
+      <% else %>
+        <%= link_to 'Login', login_path %>
+      <% end %>
+    </li>
+  </ul>
+</div>

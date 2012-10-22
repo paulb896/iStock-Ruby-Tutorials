@@ -1,25 +1,29 @@
-<h1><%= @article.title %></h1>
-<p>Tags: <%= tag_links(@article.tags) %></p>
-<br />
-<p><%= @article.body %></p>
-<% if @article.image_file_name %>
-  <p><%= image_tag @article.image.url, :class => "article_image" %></p>
-<% end %>
-<br /><hr><br />
+<link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
+<div class="article_tools">
+    <% if (logged_in? && (@article.author_id == current_user.id)) %>
+      <%= image_tag "gear_small.png", :class => "edit_article" %>
+      <%= link_to image_tag("empty_trash.png"), article_path(@article), :method => 'delete', :confirm => "Really delete the article?" %>
+    <% end %>
+</div>
+<div class="flip"> 
+    <div class="card"> 
+        <div class="face front"> 
+            <h1><%= @article.title %></h1>
+            <p>Tags: <%= tag_links(@article.tags) %></p>
+            <p><%= @article.body %></p>
+            <% if @article.image_file_name %>
+              <p><%= image_tag @article.image.url, :class => "article_image" %></p>
+            <% end %>
 
-<% if (logged_in? && (@article.author_id == current_user.id)) %>
-  <%= link_to "edit", edit_article_path(@article) %>
-  <br />
-  <%= link_to "delete", article_path(@article), :method => :delete, :confirm => "Really delete the article?"%>
-
-  <br /><br />
-<% end %>
-
-<% if logged_in? %>
-  <h3>Comments (<%= @article.comments.count %>)</h3>
-  <%= render :partial => 'comment', :collection => @article.comments %>
-  <br /><br />
-  <%= render :partial => 'comment_form' %>
-  <br /><br />
-<% end %>
-<%= link_to "<< Back to Articles List", articles_path %>
+            <% if logged_in? %>
+              <h3>Comments (<%= @article.comments.count %>)</h3>
+              <%= render :partial => 'comment', :collection => @article.comments %>
+              <%= render :partial => 'comment_form' %>
+            <% end %>
+            <%= link_to "<< Back to Articles List", articles_path %>
+        </div>
+        <div class="face back"> 
+            <%= render :partial => 'form' %>
+        </div> 
+    </div> 
+</div>

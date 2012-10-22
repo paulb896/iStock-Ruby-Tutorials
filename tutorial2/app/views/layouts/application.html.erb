@@ -2,35 +2,19 @@
 <html>
   <head>
     <title>Blogger</title>
+    <%= javascript_include_tag "jquery"%>
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application"%>
+    <%= javascript_include_tag "articles"%>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <p class="flash"><%= flash[:message] %></p>
-    <div id='navigation' class='navbar navbar-fixed-top navbar-inner topbar'>
-      <ul class='nav'>
-        <li><%= link_to 'Authors', authors_path %></li>
-        <li><%= link_to 'Articles', articles_path %></li>
-        <li><%= link_to 'Tags', tags_path %></li>
-        <% if !logged_in? %>
-          <li><%= link_to 'Create Account', :controller => "authors", :action => "new" %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div class='login_div topbar navbar-fixed-top navbar'>
-      <ul class='nav'>
-        <li>
-          <% if logged_in? %>
-            <%= link_to 'Logout', logout_path %>
-          <% else %>
-            <%= link_to 'Login', login_path %>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-    <div id="content">
+    <%= render :template => 'navigation' %>
+    <div id="container-fluid">
       <%= yield %>
+    </div>
+    <div>
+        <p class="flash"><%= flash[:message] %></p>
     </div>
   </body>
 </html>

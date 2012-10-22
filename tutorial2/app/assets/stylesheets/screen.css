@@ -2,15 +2,48 @@ div.field_with_errors label{color: red; font-weight:bold}
 div.field_with_errors input{border: 3px solid red}
 .tag_delete {color: red}
 
-.login_div{
-  background-color:white;
-  margin-bottom:5px;
-  width:10%;
-  margin-left:57%;
+.divider{
+  margin-left: 25px;
 }
 
-#content{
+.article_tools{
+    float:right;
+    position:relative;
+    z-index:4;
+}
+
+.image_edit{
+  height: 100px;
+  width: 100px;
+}
+
+.create_author{
+    background-color:#BBBBFF;
+    border-radius:2px;
+}
+
+textarea{
+    height:50px;
+}
+
+#container-fluid{
+  width: 50%;
+  height: 400px;
+  overflow:auto;
   margin-top: 50px;
+  margin-left: 20px;
+  padding-top:100px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;	
+  background-color: #DDDDDE;
+  -moz-box-shadow: 0 1px 1px 2px #ccc;
+  -webkit-box-shadow: 0 1px 1px 2px #ccc;
+  box-shadow: 0 1px 1px 2px #ccc;
+  padding:20px;
 }
 
 .article_image{
@@ -18,80 +51,76 @@ div.field_with_errors input{border: 3px solid red}
   height: 300px;
 }
 
-#f1_container {
-  -webkit-perspective: 1000px;
-  -moz-perspective: 1000px;
-  -o-perspective: 1000px;
-  perspective: 1000px;
-}
-
-#f1_container {
-  position: relative;
-  margin: 10px auto;
-  width:640px;
-  height: 360px;
-  z-index: 1;
-}
-
-#f1_card {
-  width: 100%;
-  height: 100%;
-  -webkit-transform-style: preserve-3d;
-  -webkit-transition: all 1.0s linear;
-  -moz-transform-style: preserve-3d;
-  -moz-transition: all 1.0s linear;
-  -o-transform-style: preserve-3d;
-  -o-transition: all 1.0s linear;
-  transform-style: preserve-3d;
-  transition: all 1.0s linear;
-}
-#f1_container:hover #f1_card, #f1_container.hover_effect #f1_card {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-
-  -webkit-box-shadow: -5px 5px 5px #aaa;
-  -moz-box-shadow: -5px 5px 5px #aaa;
-  box-shadow: -5px 5px 5px #aaa;
-}
-.face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-.face.back {
-  display: block;
-  -webkit-transform: rotateY(180deg);
-  -webkit-box-sizing: border-box;
-  -moz-transform: rotateY(180deg);
-  -moz-box-sizing: border-box;
-  -o-transform: rotateY(180deg);
-  -o-box-sizing: border-box;
-  transform: rotateY(180deg);
-  box-sizing: border-box;
-  padding: 10px;
-  color: white;
-  text-align: center;
-  background-color: #aaa;
-}
-
 #navigation{
-  width:50%;
+  width:80%;
 }
 
 .topbar {
+  background-color:red;
   margin-top:5px;
   border-style:solid;
   border-color:grey;
-  border-width:1px;
-  border-radius: 25px;
+  border-width:2px;
+  border-radius: 5px;
+  margin-left: 18px;
+  -moz-box-shadow: 5px 6px 5px #888;
+  -webkit-box-shadow: 5px 6px 5px #888;
+  box-shadow: 5px 6px 5px #888;
 }
 
 .center {
   text-align: center;
 }
+
+h1{
+  font-family: 'Finger Paint', cursive;
+}
+
+label{
+  display:inline;
+}
+
+input{
+  display:inline;
+}
+
+.flip {
+  -webkit-perspective: 800;
+   width: 80%;
+   #height: 400px;
+   position: relative;
+   margin: 50px auto;
+}
+.flip .card.flipped {
+  -webkit-transform: rotatey(-180deg);
+}
+.flip .card {
+  #width: 100%;
+  #height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+}
+.flip .card .face {
+  #width: 100%;
+  #height: 100%;
+  position: relative;
+  -webkit-backface-visibility: hidden ;
+  z-index: 2;
+  font-family: Georgia;
+  font-size: 3em;
+  text-align: center;
+  line-height: 200px;
+}
+.flip .card .front {
+  position: relative;
+  z-index: 1;
+    color: white;
+    cursor: pointer;
+}
+.flip .card .back {
+  -webkit-transform: rotatey(-180deg);
+    background: blue;
+    background: white;
+    color: black;
+    cursor: pointer;
+}​
