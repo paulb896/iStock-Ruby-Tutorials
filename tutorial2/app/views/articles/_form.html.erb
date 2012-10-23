@@ -1,26 +1,26 @@
 
 <%= form_for(@article, :html => {:multipart => true}) do |f| %>
-  <span>
-    <%= f.label :title %><br />
+  <div class="article_input">
+    <%= f.label :title %>
     <%= f.text_field :title %>
-  </span>
-  <span>
-    <%= f.label :body %><br />
+  </div>
+  <div class="article_input">
+    <%= f.label :body %>
     <%= f.text_area :body, :rows => "4" %>
-  </span>
-  <span>
-    <%= f.submit :value => "Save" %>
-  </span>
-  <span>
-    <%= f.label :tag_list %><br />
+  </div>
+  <div class="article_input">
+    <%= f.label :tag_list %>
     <%= f.text_field :tag_list %>
-  </span>
-  <span>
+  </div>
+  <div class="article_input">
     <% if @article.image_file_name %>
-        <%= image_tag @article.image.url, :class=> "image_edit" %><br/>
+        <%= image_tag @article.image.url, :class=> "image_edit" %>
     <% end %>
-    <%= f.label :image, "Attach a New Image" %><br />
+    <%= f.label :image, "Attach a New Image" %>
     <%= f.file_field :image %>
-  </span>
+    <div class="article_input">
+        <%= f.submit :value => "Save" %>
+    </div>
+  </div>
 <% end %>
 

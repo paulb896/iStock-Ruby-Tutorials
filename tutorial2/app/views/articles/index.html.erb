@@ -1,13 +1,26 @@
+<div style="width:200px;">
+  <div><h1>All Articles</h1></div>
+  <div>
+    <% if logged_in? %>
+      <%= link_to "New Article", new_article_path, :class => "new_article btn btn-primary btn-large" %>
+    <% end %>
+  </div>
 
-<div><h1>All Articles</h1></div>
-<div>
-  <% if logged_in? %>
-    <%= link_to "New Article", new_article_path, :class => "new_article btn btn-primary btn-large" %>
-  <% end %>
+  <div>
+    <ul id="articles" class="cool_list">
+      <% @articles.each do |article| %>
+        <li class="cool_list_item">
+          <%= link_to article.title, article_path(article), 
+            :class => 'article_title', :id => "article_#{article.id}" %>
+        </li>
+      <% end %>
+    </ul>
+   </div>
 </div>
 
-<div>
-  <select name="Filter By Month" id="scroller" style="display:none">
+<div style="width:100px; float:right; position:relative;">
+  <select name="" id="scroller" style="display:none">
+      <option value="0">All Articles</option>
       <option value="1">January</option>
       <option value="2">Februrary</option>
       <option value="3">March</option>
@@ -22,14 +35,3 @@
       <option value="12">December</option>
   </select>
 </div>
-
-
-<ul id="articles">
-  <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article_path(article), 
-        :class => 'article_title', :id => "article_#{article.id}" %>
-    </li>
-  <% end %>
-</ul>
-

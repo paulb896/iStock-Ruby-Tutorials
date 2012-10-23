@@ -1,32 +1,26 @@
 <link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
 <div class="article_tools">
     <% if (logged_in? && (@article.author_id == current_user.id)) %>
-      <%= image_tag "gear_small.png", :class => "edit_article" %>
-      <%= link_to image_tag("empty_trash.png"), article_path(@article), :method => 'delete', :confirm => "Really delete the article?" %>
+      <%= link_to image_tag("gear_small.png"), article_path(@article), :method => 'edit', :class => "edit_article" , :title => "Edit Article"%>
+      <%= link_to image_tag("trash_small.png"), article_path(@article), :method => 'delete', :confirm => "Really delete the article?", :class => "delete_article", :title => "Delete Article" %>
     <% end %>
 </div>
-<div class="flip"> 
-    <div class="card"> 
-        <div class="face front"> 
-            <h1><%= @article.title %></h1>
-            <div class="viewCount">Views: <%= @viewCount %></div>
-            <div>Tags: <%= tag_links(@article.tags) %></div>
-            <div><%= @article.body %></div>
-            <% if @article.image_file_name %>
-              <p><%= image_tag @article.image.url, :class => "article_image" %></p>
-            <% end %>
-
-            <% if logged_in? %>
-              <h3>Comments (<%= @article.comments.count %>)</h3>
-              <%= render :partial => 'comment', :collection => @article.comments %>
-              <%= render :partial => 'comment_form' %>
-            <% end %>
-            <%= link_to "<< Back to Articles List", articles_path %>
-        </div>
-        <div class="face back"> 
-          <% if (logged_in? && (@article.author_id == current_user.id)) %>
-            <%= render :partial => 'form' %>
-          <% end %>
-        </div> 
-    </div> 
+<div>
+  <div><h1><%= @article.title %></h1></div>
+  <div class="article_stats">
+    <div class="viewCount">Views: <%= @viewCount %></div>
+    <div>Tags: <%= tag_links(@article.tags) %></div>
+  </div>
+  <% if @article.image_file_name %>
+    <p><%= image_tag @article.image.url, :class => "article_image" %></p>
+  <% end %>
+  <div class="articleBody"><%= @article.body %></div>
+  <% if logged_in? %>
+    <div class="comment_section">
+      <h1>Comments (<%= @article.comments.count %>)</h1>
+      <%= render :partial => 'comment', :collection => @article.comments %>
+    </div>
+      <%= render :partial => 'comment_form' %>
+  <% end %>
+  <%= link_to "<< Back to Articles List", articles_path %>
 </div>

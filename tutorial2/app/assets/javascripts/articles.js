@@ -16,7 +16,7 @@ $(window).ready(function() {
           if (articles) {
             $("#articles").empty();
             for(var i in articles) {
-              $("#articles").append('<li><a href="'+ '/articles/' + articles[i].id +'">' + articles[i].title + '</a></li>')
+              $("#articles").append('<li class="cool_list_item"><a href="'+ '/articles/' + articles[i].id +'">' + articles[i].title + '</a></li>')
             }
           }
         });

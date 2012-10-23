@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   end
   def index
     @articles = Article.all
+    # Get top 3 articles here
   end
   def show
     @article = Article.find(params[:id])
@@ -50,12 +51,16 @@ class ArticlesController < ApplicationController
     redirect_to article_path(@article)
   end
   def byMonth
-    #@articles = Article.find(:all, :conditions => ["date(created_at) BETWEEN ? AND ? ", '2012-10-01','2012-10-11'])
-    @articles = Article.by_month(params[:month].to_i)
-    #render :json => @articles
+    month = params[:month].to_i
+    if (1..12).include?(month)
+      @articles = Article.by_month(month)
+    else
+      @articles = Article.all
+    end
+
     respond_to do |format|
       format.json { render :json => @articles }
-      format.rss { render :layout => false }
+      format.xml { render :layout => false }
     end
   end
 end

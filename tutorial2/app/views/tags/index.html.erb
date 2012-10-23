@@ -1,11 +1,10 @@
 <h1>All Tags</h1>
 
-<ul>
+<ul class="cool_list">
   <% @tags.each do |tag| %>
-    <li>
+    <li class="cool_list_item">
       <%= link_to tag.name, tag_path(tag), 
         :class => 'article_title', :id => "tag_#{tag.id}" %>
-      --
       <% if logged_in? %>
         <%= link_to "delete", tag_path(tag), :method => :delete, :confirm => "Really delete the tag?", :class => 'tag_delete'%>
       <% end %>

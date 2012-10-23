@@ -11,10 +11,40 @@ div.field_with_errors input{border: 3px solid red}
    float: right;
 }
 
+.delete_article{
+  float:right;
+}
+
+.article_input{
+    margin-left: 30px;
+    margin-top: 20px;
+    height: 50px;
+    float: left;
+}
+
 .article_tools{
-    float:right;
     position:relative;
     z-index:4;
+}
+
+.comment_section{
+  overflow:scroll;
+  width: 300px;
+  float:right;
+  overflow-y:hidden;
+  overflow-x:hidden;
+}
+
+.comment{
+   height: 200px;
+   width: 200px;
+   overflow:scroll;
+   overflow-y:hidden;
+   overflow-x:hidden;
+}
+
+td{
+  padding:18px;
 }
 
 .monthPicker{
@@ -36,14 +66,24 @@ textarea{
     height:50px;
 }
 
+.article_stats{
+  float: right;
+}
+
+a:hover{
+  background-color:transparent;
+  border-bottom-style:solid;
+  border-width:1px;
+}
+
 .viewCount{
   color:green;
-  font-size:50%;
   height:75px;
+  float: right;
 }
 
 #container-fluid{
-  width: 50%;
+  width: 80%;
   height: 400px;
   overflow:auto;
   margin-top: 50px;
@@ -94,6 +134,7 @@ textarea{
 
 h1{
   font-family: 'Finger Paint', cursive !important;
+  font-size: 25px;
 }
 
 label{
@@ -104,43 +145,36 @@ input{
   display:inline;
 }
 
-.flip {
-  -webkit-perspective: 800;
-   width: 80%;
-   #height: 400px;
-   position: relative;
-   margin: 50px auto;
+
+.cool_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
-.flip .card.flipped {
-  -webkit-transform: rotatey(-180deg);
+ 
+.cool_list_item {
+  font: 200 15px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
 }
-.flip .card {
-  #width: 100%;
-  #height: 100%;
-  -webkit-transform-style: preserve-3d;
-  -webkit-transition: 0.5s;
+ 
+.cool_list_item:last-child {
+  border: none;
 }
-.flip .card .face {
-  #width: 100%;
-  #height: 100%;
-  position: relative;
-  -webkit-backface-visibility: hidden ;
-  z-index: 2;
-  font-family: Georgia;
-  font-size: 3em;
-  text-align: center;
-  line-height: 200px;
+ 
+.cool_list_item a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  width: 200px;
+ 
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
 }
-.flip .card .front {
-  position: relative;
-  z-index: 1;
-    color: white;
-    cursor: pointer;
+ 
+.cool_list_item a:hover {
+  font-size: 20px;
+  background: #f6f6f6;
 }
-.flip .card .back {
-  -webkit-transform: rotatey(-180deg);
-    background: blue;
-    background: white;
-    color: black;
-    cursor: pointer;
-}​
