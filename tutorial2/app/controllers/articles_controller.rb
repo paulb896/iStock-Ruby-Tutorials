@@ -10,7 +10,8 @@ class ArticlesController < ApplicationController
     end
   end
   def index
-    @articles = Article.all
+    #@articles = Article.all
+    @articles = Article.find(:all, :order => "views DESC", :limit => 3)
     # Get top 3 articles here
   end
   def show
