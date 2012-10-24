@@ -6,7 +6,7 @@ $(window).ready(function() {
     });
     $('#scroller').scroller({
         preset: 'select',
-        theme: 'monthPicker',
+        theme: 'android-ics light',
         display: 'inline',
         mode: 'scroller',
         inputClass: 'nothing'

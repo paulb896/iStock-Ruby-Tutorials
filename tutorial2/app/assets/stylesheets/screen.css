@@ -48,8 +48,9 @@ td{
 }
 
 .monthPicker{
-    float:right;
-    background-color:transparent;
+  float:left;
+  background-color:transparent;
+  margin-right: 50px;
 }
 
 .image_edit{
@@ -58,12 +59,12 @@ td{
 }
 
 .create_author{
-    background-color:#DEDEFF;
-    border-radius:2px;
+  background-color:#DEDEFF;
+  border-radius:2px;
 }
 
 textarea{
-    height:50px;
+  height:50px;
 }
 
 .article_stats{
@@ -83,10 +84,9 @@ a:hover{
 }
 
 #container-fluid{
-  width: 80%;
+  width: 560px;
   height: 400px;
   overflow:auto;
-  margin-top: 50px;
   margin-left: 20px;
   padding-top:100px;
   -moz-border-radius-topleft: 10px;
@@ -112,7 +112,7 @@ a:hover{
 }
 
 #navigation{
-  width:80%;
+  width:960px;
 }
 
 .topbar {
