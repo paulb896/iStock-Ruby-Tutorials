@@ -2,6 +2,10 @@ class ArticlesController < ApplicationController
   before_filter :require_login, :except => [:index, :show, :byMonth]
   before_filter :verify_author, :only => [:edit, :update, :destroy]
 
+  def initialize
+    super
+    @showMonthPicker = true
+  end
   def verify_author
     article = Article.find(params[:id])
     if (article.author_id != current_user.id)
@@ -10,9 +14,8 @@ class ArticlesController < ApplicationController
     end
   end
   def index
-    #@articles = Article.all
-    @articles = Article.find(:all, :order => "views DESC", :limit => 3)
     # Get top 3 articles here
+    @articles = Article.find(:all, :order => "views DESC", :limit => 3)
   end
   def show
     @article = Article.find(params[:id])
