@@ -2,18 +2,8 @@ class ArticlesController < ApplicationController
   before_filter :require_login, :except => [:index, :show, :byMonth]
   before_filter :verify_author, :only => [:edit, :update, :destroy]
 
-  def initialize
-    super
-    @showMonthPicker = true
-  end
-  def verify_author
-    article = Article.find(params[:id])
-    if (article.author_id != current_user.id)
-      redirect_to root_path
-      return false
-    end
-  end
   def index
+    @showMonthPicker = true
     # Get top 3 articles here
     @articles = Article.find(:all, :order => "views DESC", :limit => 3)
   end
@@ -65,6 +55,15 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.json { render :json => @articles }
       format.xml { render :layout => false }
+    end
+  end
+  
+  private
+  def verify_author
+    article = Article.find(params[:id])
+    if (article.author_id != current_user.id)
+      redirect_to root_path
+      return false
     end
   end
 end

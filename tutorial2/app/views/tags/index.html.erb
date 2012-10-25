@@ -3,10 +3,13 @@
 <ul class="cool_list">
   <% @tags.each do |tag| %>
     <li class="cool_list_item">
-      <%= link_to tag.name, tag_path(tag), 
-        :class => 'article_title', :id => "tag_#{tag.id}" %>
+      <span><%= link_to tag.name, tag_path(tag), 
+        :class => 'article_tag', :id => "tag_#{tag.id}" %>
+      </span>
       <% if logged_in? %>
-        <%= link_to "delete", tag_path(tag), :method => :delete, :confirm => "Really delete the tag?", :class => 'tag_delete'%>
+        <span>
+          <%= link_to "delete", tag_path(tag), :method => :delete, :confirm => "Really delete the tag?", :class => 'tag_delete'%>
+        </span>
       <% end %>
     </li>
   <% end %>

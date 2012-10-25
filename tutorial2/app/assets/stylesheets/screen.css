@@ -102,6 +102,10 @@ a:hover{
   padding:20px;
 }
 
+.article_tag{
+  margin-right: 20px;
+}
+
 .nothing{
   display:none !important;
 }
@@ -164,9 +168,7 @@ input{
 .cool_list_item a {
   text-decoration: none;
   color: #000;
-  display: block;
-  width: 200px;
- 
+
   -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
   -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
   -o-transition: font-size 0.3s ease, background-color 0.3s ease;
