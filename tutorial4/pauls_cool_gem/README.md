@@ -19,14 +19,17 @@ Or install it yourself as:
 
 ## Usage
 
-    myScheduler = PaulsCoolGem::UserAvailability.new('Paul')
-    startDate = DateTime.new(2012, 12, 21, 7)
-    endDate = DateTime.new(2012, 12, 21, 16)
-This will make user available from 7am to 4pm on December 21 2012
-    myScheduler.make_available(startDate, endDate)
+    $ myScheduler = PaulsCoolGem::UserAvailability.new('Paul')
+    $ startDate = DateTime.new(2012, 12, 21, 7)
+    $ endDate = DateTime.new(2012, 12, 21, 16)
+
+This will make user available from 7am to 4pm on December 21 2012:
+
+    $ myScheduler.make_available(startDate, endDate)
 
 Access the users availability by:
-    schedule = myScheduler.availability
+
+    $ schedule = myScheduler.availability
 
 ## Contributing
 
