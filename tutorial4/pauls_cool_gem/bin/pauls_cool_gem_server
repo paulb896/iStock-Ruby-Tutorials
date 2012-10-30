@@ -1,9 +1,0 @@
-  #!/usr/bin/env ruby
-
-  require 'date'
-  require 'pauls_cool_gem/UserAvailability'
-  require 'pauls_cool_gem/AvailableDate'
-
-  get '/' do
-    return UserAvailability.new
-  end

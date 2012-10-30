@@ -1,5 +1,4 @@
-require "pauls_cool_gem/version"
-
+require "date"
 module PaulsCoolGem
   class AvailableDate
     attr_accessor :start_date, :end_date
@@ -12,7 +11,7 @@ module PaulsCoolGem
     end
   end
   class UserAvailability
-    attr_reader :availablitity
+    attr_reader :availability
     def initialize(user)
       @user = user
       @availability = Array.new
