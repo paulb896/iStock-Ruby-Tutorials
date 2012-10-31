@@ -10,6 +10,14 @@
   <%= @author.email %>
 </p>
 
+<p>
+  <b>Availability:</b>
+  <br />
+  <% @author.availability.each do |availableRange| %>
+    <%= "#{availableRange.start_date} - #{availableRange.end_date}" %>
+    <br />
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
 <%= link_to 'Back', authors_path %>

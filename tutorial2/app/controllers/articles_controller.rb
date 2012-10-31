@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
       format.xml { render :layout => false }
     end
   end
-  
+
   private
   def verify_author
     article = Article.find(params[:id])

@@ -31,6 +31,9 @@ gem 'sorcery'
 # File management
 gem 'paperclip'
 
+# Paul's cool gem
+gem 'pauls_cool_gem'
+
 # Lazy coding for html
 # gem 'haml-rails'
 
